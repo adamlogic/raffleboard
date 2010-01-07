@@ -13,8 +13,18 @@
     .result
 
     %form{ :id => 'range' }
-      %label{ :for => :rangebegin } Enter a range of numbers:
-      %input{ :type => :text, :id => :rangebegin, :value => '100000' }
-      -
-      %input{ :type => :text, :id => :rangeend, :value => '999999' }
-      %input{ :type => :submit, :value => 'Pick one!' }
+
+      %label{ :for => :range1begin } Enter two ranges of numbers:
+
+      .field
+        %input{ :type => :text, :id => :range1begin, :value => '100000' }
+        -
+        %input{ :type => :text, :id => :range1end, :value => '100999' }
+
+      .field
+        %input{ :type => :text, :id => :range2begin, :value => '500000' }
+        -
+        %input{ :type => :text, :id => :range2end, :value => '500999' }
+
+      .submit
+        %input{ :type => :submit, :value => 'Pick one!' }
