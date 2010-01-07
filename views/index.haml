@@ -11,3 +11,10 @@
   %body
 
     .result
+
+    %form{ :id => 'range' }
+      %label{ :for => :rangebegin } Enter a range of numbers:
+      %input{ :type => :text, :id => :rangebegin, :value => '100000' }
+      -
+      %input{ :type => :text, :id => :rangeend, :value => '999999' }
+      %input{ :type => :submit, :value => 'Pick one!' }
