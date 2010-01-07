@@ -11,7 +11,7 @@ $(function() {
     for (i=begin1; i<=end1; i++) { possibilities.push(i) };
     for (i=begin2; i<=end2; i++) { possibilities.push(i) };
 
-    $('.result').solari($.rand(possibilities));
+    $('.result').html($.rand(possibilities)).solari();
     return false
   });
 

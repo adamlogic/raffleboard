@@ -1,7 +1,7 @@
 $.fn.extend({
   
-  solari: function(result) {
-    this.html(result).addClass('jq-solari').splitEachCharacter();
+  solari: function() {
+    this.addClass('jq-solari').splitEachCharacter();
     this.find('span').solariSpin();
   },
 
