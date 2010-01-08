@@ -12,7 +12,6 @@ $(function() {
   $('body').bind('reveal.solari', function(e) {
     $('#winners ul').append('<li>' + e.value + '</li>');
     $('#entry_' + toNumber(e.value)).addClass('winner');
-    entries.splice(entries.indexOf(e.value), 1);
   });
 
   function addEntry(entry) {
@@ -47,8 +46,8 @@ $(function() {
   }
 
   function pick(count, duration) {
-    if (entries.length <= 1) {
-      alert('Need more than 1 entry for a drawing.');
+    if (entries.length <= count) {
+      alert('Sorry, not enough entries for a drawing.');
       return false;
     }
 
@@ -56,7 +55,9 @@ $(function() {
     
     for (var i=0; i<count; i++) {
       $('#drawing ul').append('<li></li>');
-      var winner = padToLength($.rand(entries), (largestEntry + '').length);
+      var winner = $.rand(entries);
+      entries.splice(entries.indexOf(winner), 1);
+      winner = padToLength(winner, (largestEntry + '').length);
       $('#drawing li:last').html(winner).solari(duration);
     }
   }
