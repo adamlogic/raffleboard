@@ -1,19 +1,29 @@
 $(function() {
   var entries = [], largestEntry = 0;
 
+  $('#entries_form').submit(function() { 
+    addEntries($('#new_entries').val());
+    return false;
+  });
+
+  $('#pick_1').click(function() { pick(1) });
+  $('#pick_5').click(function() { pick(5) });
+
+  $('body').bind('reveal.solari', function(e) {
+    $('#winners ul').append('<li>' + e.value + '</li>');
+    $('#entry_' + toNumber(e.value)).addClass('winner');
+    entries.splice(entries.indexOf(e.value), 1);
+  });
+
   function addEntry(entry) {
     entries.push(entry);
     if (entry > largestEntry) largestEntry = entry;
-    $('#entries ul').append('<li>' + entry + '</li>');
+    var li = $('<li>').html(entry).attr('id', 'entry_' + entry);
+    $('#entries ul').append(li);
   }
 
-  function toNumber(value) {
-    var num = parseInt(value, 10);
-    return (num + '' === 'NaN') ? null : num;
-  }
-
-  $('#entries_form').submit(function() {
-    $.each($('#new_entries').val().split(/[ ,]/), function(i, entry) {
+  function addEntries(newEntries) {
+    $.each(newEntries.split(/[ ,]/), function(i, entry) {
       if (entry.indexOf('-') > -1) {
         var range = entry.split('-'), begin, end;
         if ( (begin = toNumber(range[0])) && (end = toNumber(range[1])) ) {
@@ -23,35 +33,33 @@ $(function() {
         if (entry = toNumber(entry)) addEntry(entry);
       }
     });
+  }
 
-    return false;
-  });
+  function toNumber(value) {
+    var num = parseInt(value, 10);
+    return (num + '' === 'NaN') ? null : num;
+  }
 
-  $('#pick_1').click(function() {
+  function padToLength(value, length) {
+    while (value.length < length) value = '0' + value;
+    return value;
+  }
+
+  function pick(count) {
     if (entries.length <= 1) {
       alert('Need more than 1 entry for a drawing.');
       return false;
     }
 
-    $('#drawing ul').empty().append('<li></li>');
-    $('#drawing li:last').html($.rand(entries))
-                         .padToLength((largestEntry + '').length)
-                         .solari();
-  });
-
-  $('body').bind('reveal.solari', function(e) {
-    $('#winners ul').append('<li>' + e.value + '</li>');
-    $('#entries li:contains(' + e.value + ')').addClass('winner');
-    entries.splice(entries.indexOf(e.value), 1);
-  });
+    $('#drawing ul').empty();
+    
+    for (var i=0; i<count; i++) {
+      $('#drawing ul').append('<li></li>');
+      var winner = padToLength($.rand(entries), (largestEntry + '').length);
+      $('#drawing li:last').html(winner).solari();
+    }
+  }
 });
-
-$.fn.padToLength = function(length) {
-  var value = this.html();
-  while (value.length < length) value = '0' + value;
-  this.html(value);
-  return this;
-};
 
 $.rand = function() {
   switch(arguments.length) {
