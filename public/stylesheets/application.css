@@ -1,0 +1,25 @@
+html { background: #333; font-family: verdana; }
+body { color: #eee; margin: 20px auto; width: 800px; }
+
+#winners { float: left; width: 200px; }
+#winners h2 { margin-bottom: 15px; font-size: 22px; }
+#winners li { float: left; width: 65px; font-size: 18px; }
+
+#drawing { float: left; padding: 5px 0; width: 400px; }
+#drawing li { margin-bottom: 20px; text-align: center; font-family: courier; }
+#drawing li span { margin: 2px; padding: 4px 4px 3px; background-color: #111; color: white; font-size: 30px; }
+
+#control_panel { float: left; width: 200px; }
+
+#drawing_buttons { margin-bottom: 15px; text-align: center; }
+#drawing_buttons button { margin: 0 5px; font-size: 16px; }
+
+#entries_form { margin-bottom: 20px; }
+#entries_form label { display: block; padding-bottom: 2px; }
+#entries_form input[type=text] { width: 140px; }
+
+#entries li { float: left; width: 50px; }
+#entries li.winner { text-decoration: line-through; }
+
+
+
