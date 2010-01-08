@@ -1,7 +1,15 @@
 $.fn.extend({
   
   solari: function() {
-    this.addClass('jq-solari').splitEachCharacter();
+    var originalValue = this.html(),
+        revealCount = 0;
+
+    this.addClass('jq-solari').splitEachCharacter().bind('reveal.solari', function(e) {
+      e.value = originalValue;
+      revealCount += 1;
+      if (revealCount < originalValue.length) return false;
+    });
+
     this.find('span').solariSpin();
   },
 
@@ -14,6 +22,7 @@ $.fn.extend({
     }
 
     this.html(chars);
+    return this;
   },
 
   solariSpin: function () {
@@ -29,7 +38,7 @@ $.fn.extend({
 
       setTimeout(function() { 
         clearInterval(spinInterval);
-        span.html(original);
+        span.html(original).trigger('reveal.solari');
       }, duration);
     });
   }

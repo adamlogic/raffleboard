@@ -10,21 +10,26 @@
   
   %body
 
-    .result
+    #winners
+      %h2 
+        Winners
+        %button#reset_list reset list
 
-    %form{ :id => 'range' }
+      %ul
 
-      %label{ :for => :range1begin } Enter two ranges of numbers:
+    #drawing
+      %ul
 
-      .field
-        %input{ :type => :text, :id => :range1begin, :value => '100000' }
-        -
-        %input{ :type => :text, :id => :range1end, :value => '100999' }
+    #control_panel
 
-      .field
-        %input{ :type => :text, :id => :range2begin, :value => '500000' }
-        -
-        %input{ :type => :text, :id => :range2end, :value => '500999' }
+      #drawing_buttons
+        %button#pick_1 Pick 1
+        %button#pick_5 Pick 5
 
-      .submit
-        %input{ :type => :submit, :value => 'Pick one!' }
+      %form{ :id => 'entries_form' }
+        %label{ :for => :new_entries } Add entries
+        %input{ :type => :text, :id => :new_entries, :value => '1, 95, 100-150' }
+        %input{ :type => :submit, :value => 'Add' }
+
+      #entries
+        %ul

@@ -1,20 +1,46 @@
 $(function() {
+  var entries = [];
 
-  $('form#range').submit(function() {
-    var begin1 = parseInt($('#range1begin').val()),
-        end1 = parseInt($('#range1end').val()),
-        begin2 = parseInt($('#range2begin').val()),
-        end2 = parseInt($('#range2end').val()),
-        possibilities = [];
-        
+  function addEntry(entry) {
+    entries.push(entry);
+    $('#entries ul').append('<li>' + entry + '</li>');
+  }
 
-    for (i=begin1; i<=end1; i++) { possibilities.push(i) };
-    for (i=begin2; i<=end2; i++) { possibilities.push(i) };
+  function toNumber(value) {
+    var num = parseInt(value, 10);
+    return (num + '' === 'NaN') ? null : num;
+  }
 
-    $('.result').html($.rand(possibilities)).solari();
-    return false
+  $('#entries_form').submit(function() {
+    $.each($('#new_entries').val().split(/[ ,]/), function(i, entry) {
+      if (entry.indexOf('-') > -1) {
+        var range = entry.split('-'), begin, end;
+        if ( (begin = toNumber(range[0])) && (end = toNumber(range[1])) ) {
+          for (var i=begin; i<=end; i++) addEntry(i)
+        }
+      } else {
+        if (entry = toNumber(entry)) addEntry(entry);
+      }
+    });
+
+    return false;
   });
 
+  $('#pick_1').click(function() {
+    if (entries.length <= 1) {
+      alert('Need more than 1 entry for a drawing.');
+      return false;
+    }
+
+    $('#drawing ul').empty().append('<li></li>');
+    $('#drawing li:last').html($.rand(entries)).solari();
+  });
+
+  $('body').bind('reveal.solari', function(e) {
+    $('#winners ul').append('<li>' + e.value + '</li>');
+    $('#entries li:contains(' + e.value + ')').addClass('winner');
+    entries.splice(entries.indexOf(e.value), 1);
+  });
 });
 
 $.rand = function() {
