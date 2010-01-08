@@ -1,8 +1,9 @@
 $(function() {
-  var entries = [];
+  var entries = [], largestEntry = 0;
 
   function addEntry(entry) {
     entries.push(entry);
+    if (entry > largestEntry) largestEntry = entry;
     $('#entries ul').append('<li>' + entry + '</li>');
   }
 
@@ -33,7 +34,9 @@ $(function() {
     }
 
     $('#drawing ul').empty().append('<li></li>');
-    $('#drawing li:last').html($.rand(entries)).solari();
+    $('#drawing li:last').html($.rand(entries))
+                         .padToLength((largestEntry + '').length)
+                         .solari();
   });
 
   $('body').bind('reveal.solari', function(e) {
@@ -42,6 +45,13 @@ $(function() {
     entries.splice(entries.indexOf(e.value), 1);
   });
 });
+
+$.fn.padToLength = function(length) {
+  var value = this.html();
+  while (value.length < length) value = '0' + value;
+  this.html(value);
+  return this;
+};
 
 $.rand = function() {
   switch(arguments.length) {
