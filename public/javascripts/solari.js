@@ -34,7 +34,7 @@ $.fn.extend({
       var spinInterval = setInterval(function() {
         var nextChar = Math.floor($.rand(10));
         span.html(nextChar);
-      }, $.rand(100, 250));
+      }, $.rand(100, 150));
 
       setTimeout(function() { 
         clearInterval(spinInterval);
