@@ -18,7 +18,7 @@ $(function() {
   });
 
   $('body').bind('reveal.solari', function(e) {
-    $('#winners ul').append('<li>' + e.value + '</li>');
+    $('#winners ul').appendSorted('<li>' + e.value + '</li>');
     $('#entry_' + toNumber(e.value)).addClass('winner');
   });
 
@@ -26,7 +26,7 @@ $(function() {
     entries.push(entry);
     if (entry > largestEntry) largestEntry = entry;
     var li = $('<li>').html(entry).attr('id', 'entry_' + entry);
-    $('#entries ul').append(li);
+    $('#entries ul').appendSorted(li);
   }
 
   function addEntries(newEntries) {
@@ -71,3 +71,18 @@ $(function() {
   }
 });
 
+$.fn.appendSorted = function(item) {
+  if (this.is(':empty')) return this.append(item);
+
+  var itemValue = parseInt($(item).html(), 10);
+
+  var cursor = this.children(':first');
+  while (parseInt(cursor.html(), 10) < itemValue) {
+    cursor = cursor.next();
+  }
+
+  if (cursor.length) cursor.before(item);
+  else this.append(item);
+
+  return this;
+};
