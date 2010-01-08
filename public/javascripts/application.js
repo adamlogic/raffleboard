@@ -41,6 +41,7 @@ $(function() {
   }
 
   function padToLength(value, length) {
+    value = value + '';
     while (value.length < length) value = '0' + value;
     return value;
   }
