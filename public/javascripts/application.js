@@ -9,6 +9,14 @@ $(function() {
   $('#pick_1').click(function() { pick(1, 3000) });
   $('#pick_5').click(function() { pick(5, 2000) });
 
+  $('#reset_list').click(function() {
+    $('#winners ul').empty();
+    $('#entries li.winner').each(function(i, entry) {
+      $(entry).removeClass('winner');
+      entries.push(toNumber(entry.innerHTML));
+    });
+  });
+
   $('body').bind('reveal.solari', function(e) {
     $('#winners ul').append('<li>' + e.value + '</li>');
     $('#entry_' + toNumber(e.value)).addClass('winner');
