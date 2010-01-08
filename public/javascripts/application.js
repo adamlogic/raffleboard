@@ -1,13 +1,16 @@
 $(function() {
   var entries = [], largestEntry = 0;
 
+  $('#add_entries_link').click(function() { $('#entries_form').toggle().find('input').focus(); });
   $('#entries_form').submit(function() { 
     addEntries($('#new_entries').val());
+    $('#add_entries_link').addClass('done');
+    $(this).hide();
     return false;
   });
 
-  $('#pick_1').click(function() { pick(1, 3000) });
-  $('#pick_5').click(function() { pick(5, 2000) });
+  $('#pick_1').click(function() { pick(1, 3000); return false; });
+  $('#pick_5').click(function() { pick(5, 2000); return false; });
 
   $('#reset_list').click(function() {
     $('#winners ul').empty();

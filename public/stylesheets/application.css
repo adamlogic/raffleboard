@@ -1,18 +1,96 @@
-html { background: #333; font-family: verdana; }
-body { color: #eee; margin: 20px auto; width: 800px; }
+@font-face {
+  font-family: 'Knockout';
+  src: url('/fonts/knockout.otf') format('opentype');
+}
 
-#winners { float: left; width: 200px; }
-#winners h2 { margin-bottom: 15px; font-size: 22px; }
-#winners li { float: left; width: 65px; font-size: 18px; }
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/Gotham') format('postscript');
+}
 
-#drawing { float: left; padding: 5px 0; width: 400px; }
-#drawing li { margin-bottom: 20px; text-align: center; font-family: courier; }
-#drawing li span { margin: 2px; padding: 4px 4px 3px; background-color: #111; color: white; font-size: 30px; }
+html, body { overflow: auto; background: #292929 url(/images/body_background.gif); color: #fff; font-family: 'Gotham', arial, sans-serif; }
+a { color: #ffea00; font-weight: normal; padding: 0 4px; text-decoration: none; text-shadow: 0px 0px 5px rgba(255,255,255, 0.5); -webkit-transition: all 0.5s linear; }
+a:hover { color: #fff; opacity: 1.0; }
 
-#control_panel { float: left; width: 200px; }
+#header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+  padding: 0 15px;
+  font-family: 'Gotham', sans-serif; font-size: 16px; 
+  line-height: 50px;
+  text-transform: uppercase;
+  background: rgba(0,0,0, 0.3);
+}
+#header a { display: block; height: 50px; }
+#header a#add_entries_link { float: left; }
+#header a#add_entries_link.done { opacity: 0.5; }
+#header a#prizes_link { float: right;  }
+#header a.pick {
+  position: absolute;
+  left: 50%;
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+}
+#header a#pick_1 { margin-left: -110px; }
+#header a#pick_5 { margin-left: 10px; }
+#header form { display: none; float: left; margin-left: 10px; }
 
-#drawing_buttons { margin-bottom: 15px; text-align: center; }
-#drawing_buttons button { margin: 0 5px; font-size: 16px; }
+#wrapper {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  margin: 0 auto;
+  background: transparent url(/images/wrapper_background.gif) repeat-x;
+}
+
+#winners { position: absolute; top: 40px; left: 20px; width: 260px; }
+#winners h1 { margin-bottom: 15px; font-size: 16px; text-transform: uppercase; text-shadow: -1px -1px 1px #000; }
+#winners ul {
+  border-right: 1px solid rgba(0,0,0, 0.3);
+  border-left:  1px solid rgba(255,255,255, 0.05); 
+}
+#winners li {
+  height: 40px;
+  border-top: 1px solid rgba(255,255,255, 0.1);
+  border-bottom: 1px solid rgba(0,0,0, 0.3);
+  padding-left: 15px;
+  font-size: 18px;
+  line-height: 40px;
+  text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
+  background: rgba(0,0,0, 0.1) url(/images/winner_item_background.png);
+}
+
+#drawing { position: relative; width: 130px; min-height: 100px; margin: 67px auto 0 auto; }
+#drawing li { margin-bottom: 14px; overflow: hidden; text-align: center; font-family: 'Knockout', courier; }
+#drawing li span {
+  position: relative;
+  float: left;
+  display: block;
+  width: 40px;
+  height: 64px;
+  margin-right: 2px;
+  border-right: 1px solid #444;
+  border-bottom: 1px solid #444;
+  color: white;
+  font-size: 64px;
+  line-height: 64px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+  background: #111 url(/images/tile_background.gif) repeat-x;
+}
+#drawing li span div {
+  position: absolute; top: 50%; width: 100%; height: 2px; margin-top: -2px; background: url(/images/tile_split.png);
+}
+
+#prizes { position: absolute; top: 40px; right: 20px; width: 200px; }
+#prizes img { display: block; max-width: 200px; margin: 0 auto 25px auto; }
+
+#control_panel { display: none; float: left; width: 200px; }
 
 #entries_form { margin-bottom: 20px; }
 #entries_form label { display: block; padding-bottom: 2px; }
@@ -20,6 +98,3 @@ body { color: #eee; margin: 20px auto; width: 800px; }
 
 #entries li { float: left; width: 50px; }
 #entries li.winner { text-decoration: line-through; }
-
-
-

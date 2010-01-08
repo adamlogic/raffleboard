@@ -18,7 +18,7 @@ $.fn.extend({
         chars = '';
 
     for (var i=0; i<html.length; i++) {
-      chars += '<span>' + html[i] + '</span>';
+      chars += '<span><div></div>' + html[i] + '</span>';
     }
 
     this.html(chars);

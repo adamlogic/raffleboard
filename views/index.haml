@@ -1,4 +1,4 @@
-!!! Strict
+!!! 5
 %html
   
   %head
@@ -12,26 +12,29 @@
   
   %body
 
-    #winners
-      %h2 
-        Winners
-        %button#reset_list reset list
-
-      %ul
-
-    #drawing
-      %ul
-
-    #control_panel
-
-      #drawing_buttons
-        %button#pick_1 Pick 1
-        %button#pick_5 Pick 5
-
+    #header
+      %a#add_entries_link{ :href => '#' }add entries
+      %a#prizes_link{ :href => '#' }prizes
+      %a#pick_1.pick{ :href => '#' } Pick 1
+      %a#pick_5.pick{ :href => '#' } Pick 5
+      
       %form{ :id => 'entries_form' }
-        %label{ :for => :new_entries } Add entries
         %input{ :type => :text, :id => :new_entries, :value => '1, 95, 100-150' }
-        %input{ :type => :submit, :value => 'Add' }
 
-      #entries
+
+    #wrapper
+    
+      #prizes
+        %img{ :src => '/images/logo.gif' }
+        %img{ :src => '/images/book.jpg' }
+
+      #winners
+        %h1 Winners
         %ul
+
+      #drawing
+        %ul
+
+      #control_panel
+        #entries
+          %ul

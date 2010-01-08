@@ -58,7 +58,6 @@ a img, input[type="image"] { border: none; }
 
 html { background: #cecece; }
 body {
-  font-family: arial, sans-serif;
   background: #cecece;
   -webkit-text-stroke: 1px transparent;
 }
