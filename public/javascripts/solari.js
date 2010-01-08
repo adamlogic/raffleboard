@@ -1,6 +1,6 @@
 $.fn.extend({
   
-  solari: function() {
+  solari: function(duration) {
     var originalValue = this.html(),
         revealCount = 0;
 
@@ -10,7 +10,7 @@ $.fn.extend({
       if (revealCount < originalValue.length) return false;
     });
 
-    this.find('span').solariSpin();
+    this.find('span').solariSpin(duration);
   },
 
   splitEachCharacter: function() {
@@ -25,11 +25,11 @@ $.fn.extend({
     return this;
   },
 
-  solariSpin: function () {
+  solariSpin: function (duration) {
     this.each(function(i, span) {
       var span = $(span),
           original = span.html();
-          duration = Math.floor(Math.random()*3000 + 2000);  // 2000-5000 milliseconds
+          duration = Math.floor(Math.random()*duration + 1);
 
       var spinInterval = setInterval(function() {
         var nextChar = Math.floor(Math.random()*10);
