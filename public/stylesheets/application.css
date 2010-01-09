@@ -65,7 +65,7 @@ a:hover { color: #fff; opacity: 1.0; }
   background: rgba(0,0,0, 0.1) url(/images/winner_item_background.png);
 }
 
-#drawing { position: relative; width: 130px; min-height: 100px; margin: 67px auto 0 auto; }
+#drawing { position: relative; width: 260px; min-height: 100px; margin: 67px auto 0 auto; }
 #drawing li { margin-bottom: 14px; overflow: hidden; text-align: center; font-family: 'Knockout', courier; }
 #drawing li span {
   position: relative;
