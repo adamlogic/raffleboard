@@ -64,7 +64,9 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
   line-height: 40px;
   text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
   background: rgba(0,0,0, 0.1) url(/images/winner_item_background.png);
-  white-space: nowrap;
+}
+#winners li span {
+  /* placeholder to get line-wrapping looking decent */
 }
 
 #drawing { position: relative; width: 260px; min-height: 100px; margin: 67px auto 0 auto; }

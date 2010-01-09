@@ -25,7 +25,7 @@ $(function() {
   });
 
   $('body').bind('reveal.solari', function(e) {
-    var currentWinners = $('#winners li:first');
+    var currentWinners = $('#winners li:first span');
     currentWinners.html(currentWinners.html() + ' ' + toNumber(e.value));
     updateEntryCounter();
   });
@@ -69,7 +69,7 @@ $(function() {
       return false;
     }
 
-    $('#winners ul').prepend('<li></li>');
+    $('#winners ul').prepend('<li><span></span></li>');
     $('#drawing li').solari('000000');
     
     for (var i=0; i<count; i++) {
