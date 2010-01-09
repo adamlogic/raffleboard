@@ -1,5 +1,7 @@
 $(function() {
-  var entries = [], largestEntry = 0;
+  var entries = [];
+
+  $('#drawing li').solari('000000');
 
   $('#add_entries_link').click(function() { 
     $('#entries_form').toggle().find(':text').trigger('select');
@@ -15,17 +17,17 @@ $(function() {
 
   $('#pick_1').click(function() { pick(1, 3000); return false; });
   $('#pick_5').click(function() { pick(5, 2000); return false; });
+  $('#entry_counter').click(function() { console.log(entries); return false; });
 
   $('body').bind('reveal.solari', function(e) {
     var currentWinners = $('#winners li:first');
-    currentWinners.html(currentWinners.html() + ' ' + e.value);
+    currentWinners.html(currentWinners.html() + ' ' + toNumber(e.value));
     var entryCounter = $('#entry_counter');
     entryCounter.html(toNumber(entryCounter.html()) - 1);
   });
 
   function addEntry(entry) {
     entries.push(entry);
-    if (entry > largestEntry) largestEntry = entry;
     var entryCounter = $('#entry_counter');
     entryCounter.html(toNumber(entryCounter.html()) + 1);
   }
@@ -60,15 +62,14 @@ $(function() {
       return false;
     }
 
-    $('#drawing ul').empty();
     $('#winners ul').prepend('<li></li>');
+    $('#drawing li').solari('000000');
     
     for (var i=0; i<count; i++) {
-      $('#drawing ul').append('<li></li>');
+      var drawing = $('#drawing li').eq(i);
       var winner = $.rand(entries);
       entries.splice(entries.indexOf(winner), 1);
-      winner = padToLength(winner, (largestEntry + '').length);
-      $('#drawing li:last').html(winner).solari(duration);
+      drawing.solari(padToLength(winner, 6), duration);
     }
   }
 });

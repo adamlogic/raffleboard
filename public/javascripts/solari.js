@@ -1,16 +1,15 @@
 $.fn.extend({
   
-  solari: function(maxDuration) {
-    var originalValue = this.html(),
-        revealCount = 0;
+  solari: function(result, maxDuration, run) {
+    var revealCount = 0;
 
-    this.addClass('jq-solari').splitEachCharacter().bind('reveal.solari', function(e) {
-      e.value = originalValue;
+    this.html(result).addClass('jq-solari').splitEachCharacter().bind('reveal.solari', function(e) {
+      e.value = result;
       revealCount += 1;
-      if (revealCount < originalValue.length) return false;
+      if (revealCount < (result + '').length) return false;
     });
 
-    this.find('span').solariSpin(maxDuration);
+    if (maxDuration) this.find('span').solariSpin(maxDuration);
   },
 
   splitEachCharacter: function() {
