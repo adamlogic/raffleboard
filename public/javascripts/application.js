@@ -4,7 +4,8 @@ $(function() {
   $('#drawing li').solari('000000');
 
   $('#add_entries_link').click(function() { 
-    $('#entries_form').toggle().find(':text').trigger('select');
+    $('#entries_form').toggle();
+    setTimeout(function() { $('#entries_form :text').trigger('select') }, 0);
     return false;
   });
 
