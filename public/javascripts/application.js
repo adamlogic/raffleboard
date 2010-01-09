@@ -1,7 +1,11 @@
 $(function() {
   var entries = [], largestEntry = 0;
 
-  $('#add_entries_link').click(function() { $('#entries_form').toggle().find(':text').trigger('select'); });
+  $('#add_entries_link').click(function() { 
+    $('#entries_form').toggle().find(':text').trigger('select');
+    return false;
+  });
+
   $('#entries_form').submit(function() { 
     addEntries($('#new_entries').val());
     $('#add_entries_link').addClass('done');
@@ -13,7 +17,8 @@ $(function() {
   $('#pick_5').click(function() { pick(5, 2000); return false; });
 
   $('body').bind('reveal.solari', function(e) {
-    $('#winners ul').appendSorted('<li>' + e.value + '</li>');
+    var currentWinners = $('#winners li:first');
+    currentWinners.html(currentWinners.html() + ' ' + e.value);
   });
 
   function addEntry(entry) {
@@ -52,6 +57,7 @@ $(function() {
     }
 
     $('#drawing ul').empty();
+    $('#winners ul').prepend('<li></li>');
     
     for (var i=0; i<count; i++) {
       $('#drawing ul').append('<li></li>');
