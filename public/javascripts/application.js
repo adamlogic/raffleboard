@@ -18,6 +18,11 @@ $(function() {
   $('#pick_1').click(function() { pick(1, 3000); return false; });
   $('#pick_5').click(function() { pick(5, 2000); return false; });
   $('#entry_counter').click(function() { console.log(entries); return false; });
+  $('#prizes_link').click(function() { return false; });
+
+  $('#prize_selection').bind('mouseenter mouseleave', function() { 
+    $('#prizes_link').toggleClass('hover');
+  });
 
   $('body').bind('reveal.solari', function(e) {
     var currentWinners = $('#winners li:first');

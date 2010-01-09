@@ -10,7 +10,7 @@
 
 html, body { overflow: auto; background: #292929 url(/images/body_background.gif); color: #fff; font-family: 'Gotham', arial, sans-serif; }
 a { color: #ffea00; font-weight: normal; padding: 0 4px; text-decoration: none; text-shadow: 0px 0px 5px rgba(255,255,255, 0.5); -webkit-transition: all 0.5s linear; }
-a:hover { color: #fff; opacity: 1.0; }
+a:hover, a.hover { color: #fff; opacity: 1.0; }
 
 #header {
   position: fixed;
@@ -22,10 +22,9 @@ a:hover { color: #fff; opacity: 1.0; }
   padding: 0 15px;
   font-family: 'Gotham', sans-serif; font-size: 16px; 
   line-height: 50px;
-  text-transform: uppercase;
   background: rgba(0,0,0, 0.3);
 }
-#header a { display: block; height: 50px; }
+#header a { display: block; height: 50px; text-transform: uppercase; }
 #header a#add_entries_link { float: left; }
 #header a#add_entries_link.done { opacity: 0.5; }
 #header a#prizes_link { float: right;  }
@@ -39,6 +38,8 @@ a:hover { color: #fff; opacity: 1.0; }
 #header a#pick_1 { margin-left: -110px; }
 #header a#pick_5 { margin-left: 10px; }
 #header form { display: none; float: left; margin-left: 10px; }
+#header select { position: absolute; top: 15px; right: 15px; width: 200px; opacity: 0; cursor: pointer; }
+#header select option { font-size: 16px; }
 
 #wrapper {
   position: absolute;
@@ -94,4 +95,5 @@ a:hover { color: #fff; opacity: 1.0; }
 #entries_form { margin-bottom: 20px; }
 #entries_form label { display: block; padding-bottom: 2px; }
 #entries_form input[type=text] { width: 140px; }
+
 
