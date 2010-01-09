@@ -32,8 +32,10 @@ $(function() {
   });
 
   function addEntry(entry) {
-    entries.push(entry);
-    updateEntryCounter();
+    if (entries.length < 10000) {
+      entries.push(entry);
+      updateEntryCounter();
+    }
   }
 
   function updateEntryCounter() {
