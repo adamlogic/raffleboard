@@ -16,17 +16,20 @@ $.fn.extend({
     var html = this.html(), 
         chars = '';
 
+    this.empty();
+
     for (var i=0; i<html.length; i++) {
-      chars += '<span><div></div>' + html[i] + '</span>';
+      var charValue = $('<span>').addClass('jq-solari-char-value').html(html[i]),
+          char = $('<span>').addClass('jq-solari-char').append('<hr/>').append(charValue);
+      this.append(char);
     }
 
-    this.html(chars);
     return this;
   },
 
   solariSpin: function (maxDuration) {
     this.each(function(i, span) {
-      var span = $(span),
+      var span = $(span).find('span.jq-solari-char-value'),
           original = span.html();
           duration = $.rand(maxDuration/2, maxDuration);
 

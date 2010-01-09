@@ -69,7 +69,7 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
 
 #drawing { position: relative; width: 260px; min-height: 100px; margin: 67px auto 0 auto; }
 #drawing li { margin-bottom: 14px; overflow: hidden; text-align: center; font-family: 'Knockout', courier; }
-#drawing li span {
+#drawing li span.jq-solari-char {
   position: relative;
   float: left;
   display: block;
@@ -85,8 +85,8 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
   text-shadow: 1px 1px 1px #000;
   background: #111 url(/images/tile_background.gif) repeat-x;
 }
-#drawing li span div {
-  position: absolute; top: 50%; width: 100%; height: 2px; margin-top: -2px; background: url(/images/tile_split.png);
+#drawing li span.jq-solari-char hr {
+  position: absolute; top: 50%; width: 100%; height: 2px; margin-top: -2px; border: none; background: url(/images/tile_split.png);
 }
 
 #prizes { position: absolute; top: 40px; right: 20px; width: 200px; }
