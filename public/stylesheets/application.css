@@ -60,7 +60,8 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
   border-top: 1px solid rgba(255,255,255, 0.1);
   border-bottom: 1px solid rgba(0,0,0, 0.3);
   padding-left: 15px;
-  font-size: 18px;
+  font-family: 'Knockout', arial, sans-serif;
+  font-size: 20px;
   line-height: 40px;
   text-shadow: 1px 1px 1px rgba(0,0,0, 0.5);
   background: rgba(0,0,0, 0.1) url(/images/winner_item_background.png);
