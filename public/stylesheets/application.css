@@ -49,7 +49,7 @@ a:hover { color: #fff; opacity: 1.0; }
 }
 
 #winners { position: absolute; top: 40px; left: 20px; width: 260px; }
-#winners h1 { margin-bottom: 15px; font-size: 16px; text-transform: uppercase; text-shadow: -1px -1px 1px #000; }
+#winners h1 { margin-bottom: 15px; font-size: 16px; text-shadow: -1px -1px 1px #000; }
 #winners ul {
   border-right: 1px solid rgba(0,0,0, 0.3);
   border-left:  1px solid rgba(255,255,255, 0.05); 

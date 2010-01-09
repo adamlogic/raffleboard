@@ -19,11 +19,15 @@ $(function() {
   $('body').bind('reveal.solari', function(e) {
     var currentWinners = $('#winners li:first');
     currentWinners.html(currentWinners.html() + ' ' + e.value);
+    var entryCounter = $('#entry_counter');
+    entryCounter.html(toNumber(entryCounter.html()) - 1);
   });
 
   function addEntry(entry) {
     entries.push(entry);
     if (entry > largestEntry) largestEntry = entry;
+    var entryCounter = $('#entry_counter');
+    entryCounter.html(toNumber(entryCounter.html()) + 1);
   }
 
   function addEntries(newEntries) {
