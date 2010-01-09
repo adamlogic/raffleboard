@@ -26,7 +26,7 @@ $(function() {
 
   $('body').bind('reveal.solari', function(e) {
     var currentWinners = $('#winners li:first span');
-    currentWinners.html(currentWinners.html() + ' ' + toNumber(e.value));
+    currentWinners.html(currentWinners.html() + ' &nbsp;' + toNumber(e.value));
     updateEntryCounter();
   });
 
