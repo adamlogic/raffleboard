@@ -1,7 +1,7 @@
 $(function() {
   var entries = [], largestEntry = 0;
 
-  $('#add_entries_link').click(function() { $('#entries_form').toggle().find('input').focus(); });
+  $('#add_entries_link').click(function() { $('#entries_form').toggle().find(':text').trigger('select'); });
   $('#entries_form').submit(function() { 
     addEntries($('#new_entries').val());
     $('#add_entries_link').addClass('done');
