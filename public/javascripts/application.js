@@ -12,24 +12,13 @@ $(function() {
   $('#pick_1').click(function() { pick(1, 3000); return false; });
   $('#pick_5').click(function() { pick(5, 2000); return false; });
 
-  $('#reset_list').click(function() {
-    $('#winners ul').empty();
-    $('#entries li.winner').each(function(i, entry) {
-      $(entry).removeClass('winner');
-      entries.push(toNumber(entry.innerHTML));
-    });
-  });
-
   $('body').bind('reveal.solari', function(e) {
     $('#winners ul').appendSorted('<li>' + e.value + '</li>');
-    $('#entry_' + toNumber(e.value)).addClass('winner');
   });
 
   function addEntry(entry) {
     entries.push(entry);
     if (entry > largestEntry) largestEntry = entry;
-    var li = $('<li>').html(entry).attr('id', 'entry_' + entry);
-    $('#entries ul').appendSorted(li);
   }
 
   function addEntries(newEntries) {

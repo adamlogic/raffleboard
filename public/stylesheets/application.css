@@ -90,11 +90,7 @@ a:hover { color: #fff; opacity: 1.0; }
 #prizes { position: absolute; top: 40px; right: 20px; width: 200px; }
 #prizes img { display: block; max-width: 200px; margin: 0 auto 25px auto; }
 
-#control_panel { display: none; float: left; width: 200px; }
-
 #entries_form { margin-bottom: 20px; }
 #entries_form label { display: block; padding-bottom: 2px; }
 #entries_form input[type=text] { width: 140px; }
 
-#entries li { float: left; width: 50px; }
-#entries li.winner { text-decoration: line-through; }
