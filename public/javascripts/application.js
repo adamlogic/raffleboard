@@ -22,14 +22,16 @@ $(function() {
   $('body').bind('reveal.solari', function(e) {
     var currentWinners = $('#winners li:first');
     currentWinners.html(currentWinners.html() + ' ' + toNumber(e.value));
-    var entryCounter = $('#entry_counter');
-    entryCounter.html(toNumber(entryCounter.html()) - 1);
+    updateEntryCounter();
   });
 
   function addEntry(entry) {
     entries.push(entry);
-    var entryCounter = $('#entry_counter');
-    entryCounter.html(toNumber(entryCounter.html()) + 1);
+    updateEntryCounter();
+  }
+
+  function updateEntryCounter() {
+    $('#entry_counter').html(entries.length);
   }
 
   function addEntries(newEntries) {
