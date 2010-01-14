@@ -1,6 +1,6 @@
 $.fn.extend({
   
-  solari: function(result, maxDuration, run) {
+  solari: function(result, maxDuration) {
     var revealCount = 0;
 
     this.html(result).addClass('jq-solari').splitEachCharacter().bind('reveal.solari', function(e) {
