@@ -38,7 +38,7 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
 #header a#pick_1 { margin-left: -110px; }
 #header a#pick_5 { margin-left: 10px; }
 #header form { display: none; float: left; margin-left: 10px; }
-#header select { position: absolute; top: 15px; right: 15px; width: 200px; opacity: 0; cursor: pointer; }
+#header select { position: absolute; top: 15px; right: 15px; opacity: 0; cursor: pointer; }
 #header select option { font-size: 16px; }
 
 #wrapper {

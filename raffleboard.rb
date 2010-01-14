@@ -3,10 +3,15 @@ require 'sinatra'
 
 get '/' do
   @prizes = []
-  @prizes << { :item => 'Book from EdgeCase', :photo => 'ec.gif', :logo => 'ec.gif' }
-  @prizes << { :item => 'Tickets to Mars', :photo => 'ec.gif', :logo => 'ec.gif' }
-  @prizes << { :item => '7 Lbs of Jello', :photo => 'ec.gif', :logo => 'ec.gif' }
-  @prize_options = @prizes.map { |p| "<option>#{p[:item]}</option>" }
+  Dir.glob 'public/images/sponsors/*' do |filename|
+    filename = filename.split('/').last
+    @prizes << {:filename => filename,
+                :name => filename.split('.').first.gsub('_', ' ') }
+  end
+  @prize_options = @prizes.map do |prize| 
+    "<option value=\"#{prize[:filename]}\">#{prize[:name]}</option>"
+  end
+  
   haml :index
 end
 
