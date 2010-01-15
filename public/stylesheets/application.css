@@ -49,7 +49,7 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
   background: transparent url(/images/wrapper_background.gif) repeat-x;
 }
 
-#winners { position: absolute; top: 40px; left: 20px; width: 260px; }
+#winners { position: absolute; top: 40px; left: 20px; width: 220px; }
 #winners h1 { margin-bottom: 15px; font-size: 16px; text-shadow: -1px -1px 1px #000; }
 #winners ul {
   border-right: 1px solid rgba(0,0,0, 0.3);
@@ -67,10 +67,10 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
   background: rgba(0,0,0, 0.1) url(/images/winner_item_background.png);
 }
 #winners li span {
-  /* placeholder to get line-wrapping looking decent */
+  white-space: nowrap;
 }
 
-#drawing { position: relative; width: 260px; min-height: 100px; margin: 67px auto 0 auto; }
+#drawing { position: relative; width: 260px; min-height: 100px; margin: 40px auto 0 auto; }
 #drawing li { margin-bottom: 14px; overflow: hidden; text-align: center; font-family: 'Knockout', courier; }
 #drawing li span.jq-solari-char {
   position: relative;
