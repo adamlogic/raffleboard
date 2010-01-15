@@ -32,6 +32,7 @@ $(function() {
     var currentWinners = $('#winners li:first span');
     currentWinners.html(currentWinners.html() + ' &nbsp;' + toNumber(e.value));
     updateEntryCounter();
+    picksInProgress -= 1;
   });
 
   function addEntry(entry) {
@@ -69,7 +70,10 @@ $(function() {
     return value;
   }
 
+  var picksInProgress = 0;
   function pick(count, duration) {
+    if (picksInProgress > 0) return false;
+
     if (entries.length <= count) {
       alert('Sorry, not enough entries for a drawing.');
       return false;
@@ -83,6 +87,7 @@ $(function() {
       var winner = $.rand(entries);
       entries.splice(entries.indexOf(winner), 1);
       drawing.solari(padToLength(winner, 6), duration);
+      picksInProgress += 1;
     }
   }
 });
