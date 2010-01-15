@@ -99,4 +99,6 @@ a:hover, a.hover { color: #fff; opacity: 1.0; }
 #entries_form label { display: block; padding-bottom: 2px; }
 #entries_form input[type=text] { width: 140px; }
 
+#credits { position: absolute; bottom: 14px; right: 20px; width: 200px; font-size: 12px; }
+#credits li { margin-bottom: 5px; color: #aaa; } 
 
