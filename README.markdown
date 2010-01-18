@@ -1,10 +1,10 @@
-h1. Raffleboard
+# Raffleboard
 
-h2. Description
+## Description
 
 This app was written prior to CodeMash 2010 with the intent to be used for the large raffle at the end of the conference.  Although it is written specifically for CodeMash, I'd love to see it become more generalized.  It is a Sinatra web app, but all of the heavy lifting is jQuery.  The only server-side logic is finding the sponsor images (which I'd love to move out of the source repo).
 
-h2. License
+## License
 
 Raffleboard is released under the MIT License.  Fork it and have fun!
 
